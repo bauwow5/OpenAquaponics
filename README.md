@@ -11,9 +11,10 @@ An open-source aquaponics project, developed for the Computer Science Interdisci
 ## Get Started:
 1. Download the disk image and flash it to the microSD card of your Raspberry Pi. We used a 128GB microSD card, and recommend at minimum a 32GB card.
 2. Follow the sensor configuration guides linked [here](/sensorConfiguration.md).
-3. Connect your Pi to LAN via Ethernet and configure it for your WiFi network, since the image is configured for our test network. Default credentials are `user: oa-user` and `password: password`. We recommend changing these ASAP.
-4. Run the startup script `/home/oa-user/openAquaponics/oa/helperScripts/start.sh`.
-5. Connect to the web interface in your browser at `http://[pi's local IP]:8000/oa`
+3. Connect the Pi to your LAN via Ethernet and configure it for your WiFi network, since the image is configured for our test network. Default login credentials are `user: oa-user` and `password: password`. We recommend changing the password ASAP.
+4. Adjust the IPs used for the smart plugs. They will not be the same as ours, and are hardcoded in since they rely on HTTP requests for control.
+5. Run the startup script `/home/oa-user/openAquaponics/oa/helperScripts/start.sh`.
+6. Connect to the web interface in your browser at `http://[pi's local IP]:8000/oa`
 
 ## Future Ideas:
 Given that the development took place over the course of only one semester, there are some ideas the team did not get to implement. These include:
