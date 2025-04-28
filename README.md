@@ -9,7 +9,7 @@ An open-source aquaponics project, developed for the Computer Science Interdisci
 - Automatic water pump control via water-level sensor in grow bed.
 
 ## Get Started:
-1. Download the disk image and flash it to the SD card of your Raspberry Pi.
+1. Download the disk image and flash it to the microSD card of your Raspberry Pi. We used a 128GB microSD card, and recommend at minimum a 32GB card.
 2. Follow the hardware configuration guides linked here.
 3. Connect your Pi to LAN via Ethernet and configure it for your WiFi network, since the image is configured for our test network. Default credentials are `user: oa-user` and `password: password`. We recommend changing these ASAP.
 4. Run the startup script `/home/oa-user/openAquaponics/oa/helperScripts/start.sh`.
@@ -21,7 +21,7 @@ Given that the development took place over the course of only one semester, ther
 - More environmental sensors, as there are currently none for monitoring the conditions of the grow bed.
 - Ability to notify user of issues via web push notifications
 - Secondary camera feed for aquarium
-- Mobile app for iOS and Android
+- Mobile app for iOS and/or Android
 - System control for autofeeder (the one in use and on the parts list is a battery-operated unit with its own time-delay circuitry that did not look easy to modify for this project)
 - Bespoke PCB for ADC and power distribution
 - Better grow lamp. The one we used required extensive modifications to bypass the built-in time delay circuitry.
