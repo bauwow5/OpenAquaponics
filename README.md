@@ -1,6 +1,12 @@
 # OpenAquaponics
 An open-source aquaponics project, developed for the Computer Science Interdisciplinary Capstone at Montana State University during the Spring 2025 semester. This project was built for a Raspberry Pi Model 3B+ using Python and the Django framework, with Adobe Dreamweaver utilized for HTML5 web design. Additional tools utilized include the Python Requests library and Motion (for video capture). 
 
+## Our Implementation:
+![The OpenAquaponics prototype on display](/demoImage.jpg)
+
+## System Diagram:
+![System diagram](/Capstone%20-%20Prototype%20System%20Diagram.png)
+
 ## Features:
 - Easily built with [off-the-shelf parts](/Parts%20List.md) (and a whole lot of electrical tape)
 - Scalable design with the ability to incorporate more sensors in the future.
