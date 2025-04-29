@@ -9,10 +9,8 @@
 <link rel="stylesheet" href="{% static 'oa/multiColumnTemplate.css' %}">
 <link href="multiColumnTemplate.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
-
 </style>
 <div class="container">
   <header>
@@ -36,7 +34,6 @@
 	<div class="row">
 	<div class="columns1">
 	<h4>Timestamp</h4>
-	
 	{%for i in timestamp%}
 	<p class = "reading">{{i}}</p>
     	{%endfor%}
@@ -45,50 +42,41 @@
       <h4>Water Level</h4>
 	{%for i in waterlevels%}	
 	<p class="reading">{{i}}</p>
-
 	{%endfor%}
     </div>
     <div class="columns1">
       <h4>Temperature (&deg;C) </h4>
-	
 	{%for i in temps%}
-      	{%if tempInRange%}
-		<p class="reading">{{i}}</p>
-	{%else%}
-		<p class="reading"> {{i}}</p>
-	{%endif%}
-
+	      	{%if tempInRange%}
+			<p class="reading">{{i}}</p>
+		{%else%}
+			<p class="reading"> {{i}}</p>
+		{%endif%}
     	{%endfor%}
     </div>
     <div class="columns1">
       <h4>Total Disolved Solids (ppm)</h4>
-
 	{%for i in tds%}
-	{%if tdsInRange%}
-		<p class="reading">{{i}}</p>
-	{%else%}
-		<p class="reading"> {{i}}</p>
-	{%endif%}
-
+		{%if tdsInRange%}
+			<p class="reading">{{i}}</p>
+		{%else%}
+			<p class="reading"> {{i}}</p>
+		{%endif%}
       {%endfor%}
     </div>
     <div class="columns1">
       <h4>pH</h4>
-
 	{%for i in pHs%}
-	{%if phInRange%}
-	
-	<p class="reading">{{i}}</p>
-	{%else%}
-	
-	<p class="reading"> {{i}}</p>
-	{%endif%}
+		{%if phInRange%}
+		<p class="reading">{{i}}</p>
+		{%else%}
+		<p class="reading"> {{i}}</p>
+		{%endif%}
 	{%endfor%}
     </div>
 	</div>
     </article>
   </section>
-
   <footer class="secondary_header footer">
     <div class="copyright"><a href="#top">Back to top</a></div>
   </footer>
