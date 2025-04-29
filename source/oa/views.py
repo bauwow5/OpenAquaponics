@@ -50,7 +50,7 @@ def index(request):
         #pass a variable to the html like this vvv
     global temp, tds, pH
     r = helper.getSensorReading()
-    print("##############",r[0])
+    
     readings = Sensors(waterLevel=r[0], thermo=r[1], tds=r[2], pH=r[3], timestamp=timezone.now())
     readings.save()
     readings.waterLevel = r[0] 
@@ -145,7 +145,7 @@ def logs(request):
     temps = Sensors.objects.order_by('-id').values_list("thermo",flat=True)
     tds = Sensors.objects.order_by('-id').values_list("tds",flat=True)
     pHs = Sensors.objects.order_by('-id').values_list("pH",flat=True)
-    #sensor_reading = get_object_or_404(Sensors)
+    
     context = {"timestamp":times,"waterlevels":waterlevels,"temps":temps,"tds":tds,"pHs":pHs,"tempInRange":tempInRange(),"tdsInRange":tdsInRange(),"phInRange":pHInRange()}
     
     return render(request, "oa/logs.html", context)
