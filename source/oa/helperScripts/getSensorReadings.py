@@ -16,10 +16,7 @@ class HelperScripts:
         
 
     def getSensorReading(self):
-
         sensor_array =[]
-
-
         sensor_array.append(self.isDraining()) 
         sensor_array.append(self.thermo()) 
         sensor_array.append(self.getTDS())
@@ -38,85 +35,62 @@ class HelperScripts:
             request =requests.get('http://10.0.1.3/cm?cmnd=Power')
             jsonRequest =request.json()
             status = jsonRequest.get('POWER')
-    #print(jsonRequest.get('POWER'))    
             if status =="ON":
                 return "Filling"
             else:
                 return "Draining"
         except:
             return 0
+            
     def waterLevel(self):
-
-    #GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
         waterLine = (GPIO.input(17) ==GPIO.HIGH)
-
-    #print(waterLine)
         return waterLine
-    '''
-    if waterLine:
-        return "Water Level High"
-    else:
-        return "Water Level Low"
-    '''
-#28-0000103f8d52/temperature"
+        
     def thermo(self):
-    
         try:
             temperature = open("/sys/bus/w1/devices/28-0000103f8d52/temperature","r")
-    
             temp = temperature.read().replace("\n","")
             temperature.close()
-    #conversion to celcius
-
-            temperature = int(temp)/1000 
-
+            temperature = int(temp)/1000 #conversion to Celcius
             return temperature
         except:
             return 0
+            
     def getPH(self):
-
         try:
             Value = self.readadc(0)
             voltage = (Value * 5.0) / 1023  # Corrected for 5V MCP3008
-
             phvalue = 7 - (voltage - 1.85) * 3.5  # Adjusted neutral voltage
-
-    
             phvalue = self.truncate(phvalue,2)
             return phvalue
         except:
             return 0
+            
     def readadc(self,adcnum):
         if adcnum < 0 or adcnum > 7:
             return -1
         r = spi.xfer2([1, (8 + adcnum) << 4, 0])
         adcout = ((r[1] & 3) << 8) + r[2]
         return adcout
-
-
-    # Read pH sensor on Channel 0
+        # Read pH sensor on Channel 0
 
     def getTDS(self):
-    # Read TDS sensor on Channel 1
+        # Read TDS sensor on Channel 1
         try:
             tds_adc = self.readadc(1)
             tds_voltage = (tds_adc * 5.0) / 1023  # Convert ADC to voltage
-
-    # Convert voltage to TDS (from DFRobot's formula)
+            # Convert voltage to TDS (from DFRobot's formula)
             tds_value = (133.42 * tds_voltage**3 - 255.86 * tds_voltage**2 + 857.39 * tds_voltage) * 0.5
-
-    #truncates the value
-            tds_value =self.truncate(tds_value,2)
+            tds_value =self.truncate(tds_value,2) # Truncates the value
             return tds_value
         except:
             return 0
-#this is a helper method to truncate floating point numbers
+            
+    # Helper method to truncate floating point numbers
     def truncate(self,f, n):
         s = '%.12f' % f
         i, p, d = s.partition('.')
         return '.'.join([i, (d+'0'*n)[:n]])
-
-
+        
