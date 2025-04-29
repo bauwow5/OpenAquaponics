@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logs - OpenAquaponics</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'oa/multiColumnTemplate.css' %}">
+<link href="multiColumnTemplate.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+</style>
+<div class="container">
+  <header>
+    <a id="top"></a>
+    <div class="primary_header">
+      <h1 class="title">OpenAquaponics</h1>
+    </div>
+    <nav class="secondary_header" id="menu">
+      <ul>
+        <li><a href="{% url 'index' %}">DASHBOARD</a></li>
+        <li><a href="{% url 'logs' %}">LOGS</a></li>
+        <li><a href="{% url 'settings' %}">SETTINGS</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h2 class="noDisplay">Hello</h2>
+    <article class="article">
+      <h3>Sensor Log</h3>
+	<a href="?download=csv" class="btn"><i class="fa fa-download"></i> Download as csv</a>
+	<div class="row">
+	<div class="columns1">
+	<h4>Timestamp</h4>
+	
+	{%for i in timestamp%}
+	<p class = "reading">{{i}}</p>
+    	{%endfor%}
+	</div>
+    <div class="columns1">
+      <h4>Water Level</h4>
+	{%for i in waterlevels%}	
+	<p class="reading">{{i}}</p>
+
+	{%endfor%}
+    </div>
+    <div class="columns1">
+      <h4>Temperature (&deg;C) </h4>
+	
+	{%for i in temps%}
+      	{%if tempInRange%}
+		<p class="reading">{{i}}</p>
+	{%else%}
+		<p class="reading"> {{i}}</p>
+	{%endif%}
+
+    	{%endfor%}
+    </div>
+    <div class="columns1">
+      <h4>Total Disolved Solids (ppm)</h4>
+
+	{%for i in tds%}
+	{%if tdsInRange%}
+		<p class="reading">{{i}}</p>
+	{%else%}
+		<p class="reading"> {{i}}</p>
+	{%endif%}
+
+      {%endfor%}
+    </div>
+    <div class="columns1">
+      <h4>pH</h4>
+
+	{%for i in pHs%}
+	{%if phInRange%}
+	
+	<p class="reading">{{i}}</p>
+	{%else%}
+	
+	<p class="reading"> {{i}}</p>
+	{%endif%}
+	{%endfor%}
+    </div>
+	</div>
+    </article>
+  </section>
+
+  <footer class="secondary_header footer">
+    <div class="copyright"><a href="#top">Back to top</a></div>
+  </footer>
+</div>
+</body>
+</html>

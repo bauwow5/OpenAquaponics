@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings - OpenAquaponics</title>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'oa/multiColumnTemplate.css' %}">
+<link href="multiColumnTemplate.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="container">
+  <header>
+    <a id="top"></a>
+    <div class="primary_header">
+      <h1 class="title">OpenAquaponics</h1>
+    </div>
+    <nav class="secondary_header" id="menu">
+      <ul>
+        <li><a href="{% url 'index' %}">DASHBOARD</a></li>
+        <li><a href="{% url 'logs' %}">LOGS</a></li>
+        <li><a href="{% url 'settings' %}">SETTINGS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2 class="noDisplay">Settings</h2>
+    <article class="article">
+      <h3>Settings</h3>
+
+      <form method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="columns3">
+            <strong>Lights</strong>
+            <label class="switch">
+              <input type="checkbox" name="light_status" value="on" {% if light_status %}checked{% endif %}>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="columns2">
+            <h4>Temperature (&deg;C)</h4>
+            <label for="minTemp">Minimum:</label>
+            <input type="number" id="minTemp" name="tempMin" value="{{ tempMin }}" min="-99" max="200"><br>
+            <label for="maxTemp">Maximum:</label>
+            <input type="number" id="maxTemp" name="tempMax" value="{{ tempMax }}"  min="-99" max="200">
+          </div>
+
+          <div class="columns2">
+            <h4>Total Dissolved Solids (ppm)</h4>
+            <label for="minTDS">Minimum:</label>
+            <input type="number" id="minTDS" name="tdsMin" value="{{ tdsMin }}" min="0" max="9000000"><br>
+            <label for="maxTDS">Maximum:</label>
+            <input type="number" id="maxTDS" name="tdsMax" value="{{ tdsMax }}"  min="0" max="9000000">
+          </div>
+
+          <div class="columns2">
+            <h4>pH</h4>
+            <label for="minPH">Minimum:</label>
+            <input type="number" id="minPH" name="pHMin" value="{{ pHMin }}" min="0" max="14" step="0.1"><br>
+            <label for="maxPH">Maximum:</label>
+            <input type="number" id="maxPH" name="pHMax" value="{{ pHMax }}" min="0" max="14" step="0.1">
+          </div>
+        </div>
+
+        <article class="article1">
+          <button class="btn" type="submit">Save Changes</button>
+        </article>
+      </form>
+    </article>
+  </section>
+
+  <footer class="secondary_header footer">
+    <div class="copyright"><a href="#top">Back to top</a></div>
+  </footer>
+</div>
+</body>
+</html>
