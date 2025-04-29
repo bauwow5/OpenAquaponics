@@ -5,7 +5,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard - OpenAquaponics</title>
-
 {% load static %}
 <link rel="stylesheet" href="{% static 'oa/multiColumnTemplate.css' %}">
 </head>
@@ -33,7 +32,6 @@
       <h3 class=dashboard_overview_bad style="color: #DE1D20;">Something is fishy!</h3> 
       {% endif %}
     </article>
-    <!--<aside class="right_article"><iframe width="100%" height="100" src="http://10.0.1.4:8081/" alt="" class="placeholder"></iframe><!-- </aside>-->
     <img id="image" src="http://10.0.1.6:8081/0/stream"></img>
   </section>
   <div class="row">
@@ -43,7 +41,6 @@
     text-align: center;"> {{sensor_reading.waterLevel }} </p>
       <h4>Water Status</h4>
     </div>
-
     <div class="columns">
         {% if tempIR %}
             <p style="
@@ -58,7 +55,6 @@
         {% endif %}
       <h4>Temperature (&deg;C)</h4>
     </div>
-
     <div class="columns">
         {% if tdsIR %} 
             <p style="
@@ -73,7 +69,6 @@
         {% endif %}
       <h4>Total Disolved Solids (ppm)</h4>
     </div>
-
     <div class="columns">
 	    {% if pHIR %}
             <p style="
@@ -97,12 +92,9 @@
       {% else %}
       <h2 class="column_title" style="background-color:red;padding:50px;">Lights -
         Off</h2>
-      {% endif %}
-		
+      {% endif %}	
     </div>
-
   </div>
-
   <footer class="secondary_header footer">
     <div class="copyright"><a href="#top">Back to top</a></div>
   </footer>
