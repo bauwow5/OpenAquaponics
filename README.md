@@ -2,13 +2,13 @@
 An open-source aquaponics project, developed for the Computer Science Interdisciplinary Capstone at Montana State University during the Spring 2025 semester. This project was built for a Raspberry Pi Model 3B+ using Python and the Django framework, with Adobe Dreamweaver utilized for HTML5 web design. Additional tools utilized include the Python Requests library and Motion (for video capture). 
 
 ## Our Implementation:
-![The OpenAquaponics prototype on display](/demoImage.jpg)
+![The OpenAquaponics prototype on display](/images/demoImage.jpg)
 
 ## System Diagram:
-![System diagram](/systemDiagram.png)
+![System diagram](/images/systemDiagram.png)
 
 ## Features:
-- Easily built with [off-the-shelf parts](/partsList.md) (and a whole lot of electrical tape)
+- Easily built with [off-the-shelf parts](/docs/partsList.md) (and a whole lot of electrical tape)
 - Scalable design with the ability to incorporate more sensors in the future.
 - Easy-to-use web interface for system monitoring of grow bed outflow and aquarium temperature, pH, and total dissolved solids (TDS).
 - Ability to export system data as CSV for data analysis
@@ -18,8 +18,8 @@ An open-source aquaponics project, developed for the Computer Science Interdisci
 1. Download the source code onto your Raspberry Pi.
 2. [Configure the smart plugs for your network](https://tasmota.github.io/docs/).
 3. Install [Motion](https://github.com/Motion-Project/motion) and [Django](https://www.djangoproject.com/).
-4. Follow the sensor configuration guides linked [here](/sensorConfiguration.md).
-5. [Adjust the IPs used in the scripts for the smart plugs and Motion](/networkConfiguration.md). They will not be the same as ours, and are hardcoded in since they rely on HTTP requests for control.
+4. Follow the sensor configuration guides linked [here](/docs/sensorConfiguration.md).
+5. [Adjust the IPs used in the scripts for the smart plugs and Motion](/docs/networkConfiguration.md). They will not be the same as ours, and are hardcoded in since they rely on HTTP requests for control.
 6. Run the startup script located at `source/oa/helperScripts/start.sh`.
 7. Connect to the web interface in your browser at `http://[pi's local IP]:8000/oa`
 
