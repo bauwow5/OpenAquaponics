@@ -20,7 +20,7 @@ An open-source aquaponics project, developed for the Computer Science Interdisci
 3. Install [Motion](https://github.com/Motion-Project/motion) and [Django](https://www.djangoproject.com/).
 4. Follow the sensor configuration guides linked [here](/sensorConfiguration.md).
 5. [Adjust the IPs used in the scripts for the smart plugs and Motion](/networkConfiguration.md). They will not be the same as ours, and are hardcoded in since they rely on HTTP requests for control.
-6. Run the startup script located at `/oa/helperScripts/start.sh`.
+6. Run the startup script located at `source/oa/helperScripts/start.sh`.
 7. Connect to the web interface in your browser at `http://[pi's local IP]:8000/oa`
 
 ## Future Ideas:
