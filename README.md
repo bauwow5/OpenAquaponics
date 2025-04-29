@@ -5,10 +5,10 @@ An open-source aquaponics project, developed for the Computer Science Interdisci
 ![The OpenAquaponics prototype on display](/demoImage.jpg)
 
 ## System Diagram:
-![System diagram](/Capstone%20-%20Prototype%20System%20Diagram.png)
+![System diagram](/systemDiagram.png)
 
 ## Features:
-- Easily built with [off-the-shelf parts](/Parts%20List.md) (and a whole lot of electrical tape)
+- Easily built with [off-the-shelf parts](/partsList.md) (and a whole lot of electrical tape)
 - Scalable design with the ability to incorporate more sensors in the future.
 - Easy-to-use web interface for system monitoring of grow bed outflow and aquarium temperature, pH, and total dissolved solids (TDS).
 - Ability to export system data as CSV for data analysis
